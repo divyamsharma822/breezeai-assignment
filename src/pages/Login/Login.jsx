@@ -24,45 +24,54 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        setLoading(true);
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                dispatch(
-                    login({
-                        email: userCredential.user.email,
-                        uid: userCredential.user.uid,
-                    })
-                );
-                setLoading(false);
-                navigate("/dashboard");
-            })
-            .catch((error) => {
-                setLoading(false);
-                console.log(error.message);
-                alert("Account Not Found, SignUp First.");
-            });
+        if (email !== "" && password !== "") {
+            setLoading(true);
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    dispatch(
+                        login({
+                            email: userCredential.user.email,
+                            uid: userCredential.user.uid,
+                        })
+                    );
+                    setLoading(false);
+                    navigate("/dashboard");
+                })
+                .catch((error) => {
+                    setLoading(false);
+                    console.log(error.message);
+                    alert("Account Not Found, SignUp First.");
+                });
+        } else {
+            alert("Fields can't be empty");
+        }
     };
 
     const handleSignUp = () => {
-        setLoading(true);
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in
+       
+        if (email !== "" && password !== "") {
+            setLoading(true);
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in
 
-                dispatch(
-                    login({
-                        email: userCredential.user.email,
-                        uid: userCredential.user.uid,
-                    })
-                );
-                setLoading(false);
-                navigate("/dashboard");
-            })
-            .catch((error) => {
-                setLoading(false);
-                console.log(error.message);
-                alert("Login Failed. Try Again");
-            });
+                    dispatch(
+                        login({
+                            email: userCredential.user.email,
+                            uid: userCredential.user.uid,
+                        })
+                    );
+                    setLoading(false);
+                    navigate("/dashboard");
+                })
+                .catch((error) => {
+                    setLoading(false);
+                    console.log(error.message);
+                    alert("Signup Failed. Try Again");
+                });
+        } else {
+            alert("Fields can't be empty");
+        }
     };
 
     const handleLoginWithGoogle = () => {
@@ -98,9 +107,9 @@ const Login = () => {
                             src={banner}
                             alt=''
                             className='object-contain h-[350px] min-w-[100px] inset-0'
-                            loading="lazy"
-                            width="300" 
-                            height="300"
+                            loading='lazy'
+                            width='300'
+                            height='300'
                         />
                     </div>
                     <div className='flex items-center my-4 right md:mx-5'>
@@ -130,7 +139,7 @@ const Login = () => {
                                     type='submit'
                                     className='w-1/2 bg-[#1767c2] hover:bg-[#1767c2a8] text-white rounded text-sm py-0.5 cursor-pointer'
                                     onClick={handleLogin}>
-                                    LogIn
+                                    Log In
                                 </button>
                                 <button
                                     type='button'
