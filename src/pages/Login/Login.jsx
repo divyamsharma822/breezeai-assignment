@@ -93,14 +93,17 @@ const Login = () => {
 
             <div className='login'>
                 <div className='login-container flex items-center justify-between min-w-fit max-w-[800px] max-h-min bg-white rounded-lg p-4 mx-3'>
-                    <div className='left hidden md:flex items-center justify-center'>
+                    <div className='items-center justify-center hidden left md:flex'>
                         <img
                             src={banner}
                             alt=''
                             className='object-contain h-[350px] min-w-[100px] inset-0'
+                            loading="lazy"
+                            width="300" 
+                            height="300"
                         />
                     </div>
-                    <div className='right flex items-center md:mx-5 my-4'>
+                    <div className='flex items-center my-4 right md:mx-5'>
                         <form className='flex flex-col items-center gap-2'>
                             <h1 className='text-[#1766c2] text-[30px]'>
                                 Welcome
@@ -122,7 +125,7 @@ const Login = () => {
                                 className='border-zinc-300 rounded-[5px] border-2 px-3 py-1 text-sm'
                                 required
                             />
-                            <div className='button-group flex w-full gap-2'>
+                            <div className='flex w-full gap-2 button-group'>
                                 <button
                                     type='submit'
                                     className='w-1/2 bg-[#1767c2] hover:bg-[#1767c2a8] text-white rounded text-sm py-0.5 cursor-pointer'
