@@ -32,6 +32,7 @@ const Dashboard = () => {
                         <Logoutlogo
                             style={{ cursor: "pointer" }}
                             onClick={handleSignout}
+                            title="logout"
                         />
                     </div>
                     <div className='bg-slate-600 rounded-b-lg p-5 text-center'>
