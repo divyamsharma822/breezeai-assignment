@@ -1,0 +1,16 @@
+.login {
+    background-image: url("../../assets/img/login-bg.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    box-shadow: 1px 4px 25px -6px rgba(0, 0, 0, 0.63);
+}
